@@ -108,7 +108,7 @@ export default function AboutSection() {
           >
             <a
               href="#booking"
-              className="inline-block bg-gradient-to-r from-[#0F5132] to-[#2EB67D] text-white font-semibold px-10 py-3 rounded-full shadow-md hover:shadow-[#20C997]/40 transition-all duration-300"
+              className="inline-block bg-linear-to-r from-[#0F5132] to-[#2EB67D] text-white font-semibold px-10 py-3 rounded-full shadow-md hover:shadow-[#20C997]/40 transition-all duration-300"
             >
               Book Your Ride Now
             </a>
