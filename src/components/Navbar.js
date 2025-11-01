@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -17,8 +17,10 @@ import {
   FaChevronDown,
 } from "react-icons/fa";
 import logo from "../../public/assets/images/Logo.png";
+import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
+  const { cartItems } = useCart();
   const [languageOpen, setLanguageOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -27,6 +29,24 @@ export default function Navbar() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   const whatsappNumber = "923179369176";
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!e.target.closest('.dropdown-container')) {
+        setOpenDropdown(null);
+      }
+      if (!e.target.closest('.language-dropdown')) {
+        setLanguageOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   const taxiOptions = [
     { name: "CAMERY 4 SEATER", path: "/taxi/camery-4-seater" },
@@ -126,10 +146,13 @@ export default function Navbar() {
             </div>
 
             {/* Language dropdown */}
-            <div className="relative z-9999">
+            <div className="relative z-9999 language-dropdown">
               <button
-                onClick={() => setLanguageOpen(!languageOpen)}
-                className="flex items-center gap-2 hover:text-[#ad8f60]"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLanguageOpen(!languageOpen);
+                }}
+                className="flex items-center gap-2 hover:text-[#ad8f60] transition-colors"
               >
                 Language
                 <FaChevronDown
@@ -139,12 +162,18 @@ export default function Navbar() {
                 />
               </button>
               {languageOpen && (
-                <div className="absolute right-0 mt-2 bg-white text-black rounded shadow-lg w-28">
+                <div className="absolute right-0 mt-2 bg-white text-black rounded-lg shadow-xl w-32 py-1 animate-fadeIn">
                   <ul>
-                    <li className="px-3 py-2 hover:bg-gray-100 cursor-pointer">
+                    <li 
+                      onClick={() => setLanguageOpen(false)}
+                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer transition-colors text-sm"
+                    >
                       English
                     </li>
-                    <li className="px-3 py-2 hover:bg-gray-100 cursor-pointer">
+                    <li 
+                      onClick={() => setLanguageOpen(false)}
+                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer transition-colors text-sm"
+                    >
                       Urdu
                     </li>
                   </ul>
@@ -176,25 +205,36 @@ export default function Navbar() {
             ))}
 
             {/* Book Taxi Dropdown */}
-            <li className="relative">
-              <button
-                onClick={() => handleDropdown("taxi")}
-                className="flex items-center gap-1 text-[#0F5132] hover:text-[#ad8f60]"
-              >
-                Book Taxi Online
-                <FaChevronDown
-                  className={`text-xs transition-transform ${
-                    openDropdown === "taxi" ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+            <li className="relative dropdown-container">
+              <div className="flex items-center gap-1">
+                <Link
+                  href="/taxi"
+                  className="text-[#0F5132] hover:text-[#ad8f60] font-medium transition-colors"
+                >
+                  Book Taxi Online
+                </Link>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDropdown("taxi");
+                  }}
+                  className="text-[#0F5132] hover:text-[#ad8f60] p-1"
+                >
+                  <FaChevronDown
+                    className={`text-xs transition-transform ${
+                      openDropdown === "taxi" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              </div>
               {openDropdown === "taxi" && (
-                <ul className="absolute left-0 mt-2 bg-white rounded-lg shadow-lg border border-[#0F5132]/10 min-w-[220px]">
+                <ul className="absolute left-0 mt-2 bg-white rounded-lg shadow-xl border border-[#0F5132]/10 min-w-[240px] py-2 z-50 animate-fadeIn">
                   {taxiOptions.map((taxi) => (
                     <li key={taxi.path}>
                       <Link
                         href={taxi.path}
-                        className="block px-4 py-2 text-[#0F5132] hover:bg-[#F7F9F5] hover:text-[#ad8f60]"
+                        onClick={() => setOpenDropdown(null)}
+                        className="block px-4 py-2.5 text-[#0F5132] hover:bg-[#F7F9F5] hover:text-[#ad8f60] transition-all duration-200 text-sm"
                       >
                         {taxi.name}
                       </Link>
@@ -205,47 +245,20 @@ export default function Navbar() {
             </li>
 
             {/* Services Dropdown */}
-            {/* <li className="relative">
-              <button
-                onClick={() => handleDropdown("services")}
-                className="flex items-center gap-1 text-[#0F5132] hover:text-[#ad8f60]"
-              >
-                Services
-                <FaChevronDown
-                  className={`text-xs transition-transform ${
-                    openDropdown === "services" ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {openDropdown === "services" && (
-                <ul className="absolute left-0 mt-2 bg-white rounded-lg shadow-lg border border-[#0F5132]/10 min-w-[220px]">
-                  {serviceOptions.map((service) => (
-                    <li key={service.path}>
-                      <Link
-                        href={service.path}
-                        className="block px-4 py-2 text-[#0F5132] hover:bg-[#F7F9F5] hover:text-[#ad8f60]"
-                      >
-                        {service.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li> */}
-            <li className="relative">
-              <div className="flex items-center gap-1 text-[#0F5132] hover:text-[#ad8f60]">
-                {/* Services Page Link */}
-                <Link href="/services" className="flex items-center gap-1">
+            <li className="relative dropdown-container">
+              <div className="flex items-center gap-1">
+                <Link 
+                  href="/services" 
+                  className="text-[#0F5132] hover:text-[#ad8f60] font-medium transition-colors"
+                >
                   Services
                 </Link>
-
-                {/* Dropdown Toggle Button */}
                 <button
                   onClick={(e) => {
-                    e.stopPropagation(); // Prevent Link from triggering
+                    e.stopPropagation();
                     handleDropdown("services");
                   }}
-                  className="focus:outline-none"
+                  className="text-[#0F5132] hover:text-[#ad8f60] p-1"
                 >
                   <FaChevronDown
                     className={`text-xs transition-transform ${
@@ -255,14 +268,14 @@ export default function Navbar() {
                 </button>
               </div>
 
-              {/* Dropdown Menu */}
               {openDropdown === "services" && (
-                <ul className="absolute left-0 mt-2 bg-white rounded-lg shadow-lg border border-[#0F5132]/10 min-w-[220px]">
+                <ul className="absolute left-0 mt-2 bg-white rounded-lg shadow-xl border border-[#0F5132]/10 min-w-[220px] py-2 z-50 animate-fadeIn">
                   {serviceOptions.map((service) => (
                     <li key={service.path}>
                       <Link
                         href={service.path}
-                        className="block px-4 py-2 text-[#0F5132] hover:bg-[#F7F9F5] hover:text-[#ad8f60]"
+                        onClick={() => setOpenDropdown(null)}
+                        className="block px-4 py-2.5 text-[#0F5132] hover:bg-[#F7F9F5] hover:text-[#ad8f60] transition-all duration-200 text-sm"
                       >
                         {service.name}
                       </Link>
@@ -275,9 +288,17 @@ export default function Navbar() {
             <li>
               <Link
                 href="/cart"
-                className="text-[#0F5132] hover:text-[#ad8f60]"
+                className="relative"
               >
-                <FaShoppingCart className="text-xl" />
+                <button className="bg-gradient-to-r from-[#0F5132] to-[#198754] hover:from-[#ad8f60] hover:to-[#d4a574] text-white px-5 py-2.5 rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2">
+                  <FaShoppingCart className="text-base" />
+                  <span>My Bookings</span>
+                  {cartItems.length > 0 && (
+                    <span className="bg-white text-[#0F5132] text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center ml-1 animate-pulse">
+                      {cartItems.length}
+                    </span>
+                  )}
+                </button>
               </Link>
             </li>
 
@@ -395,15 +416,20 @@ export default function Navbar() {
             </li>
           </ul>
 
-          {/* Cart */}
+          {/* My Bookings */}
           <div className="px-6 mb-4">
             <Link
               href="/cart"
               onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-center gap-2 bg-[#0F5132] text-white px-4 py-3 rounded-full shadow hover:bg-[#ad8f60] transition"
+              className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#0F5132] to-[#198754] text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:from-[#ad8f60] hover:to-[#d4a574] transition-all duration-300 relative"
             >
-              <FaShoppingCart className="text-lg" />
-              View Cart
+              <FaShoppingCart className="text-xl" />
+              <span className="font-semibold">My Bookings</span>
+              {cartItems.length > 0 && (
+                <span className="bg-white text-[#0F5132] text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center animate-pulse">
+                  {cartItems.length}
+                </span>
+              )}
             </Link>
           </div>
 

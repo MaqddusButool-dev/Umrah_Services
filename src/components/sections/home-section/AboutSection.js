@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FaCarSide, FaClock, FaUserTie, FaDollarSign } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 import about from "../../../../public/assets/images/image.png";
 
 export default function AboutSection() {
@@ -14,7 +15,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-linear-to-b from-[#f8fff9] to-[#ecf9f2] py-20">
+    <section className="relative overflow-hidden bg-white py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-20 lg:gap-28">
 
         {/* ---------- IMAGE SECTION ---------- */}
@@ -100,18 +101,22 @@ export default function AboutSection() {
 
           {/* ---------- CTA ---------- */}
           <motion.div
-            className="pt-2"
+            className="pt-2 flex flex-wrap gap-4"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
           >
-            <a
-              href="#booking"
-              className="inline-block bg-linear-to-r from-[#0F5132] to-[#2EB67D] text-white font-semibold px-10 py-3 rounded-full shadow-md hover:shadow-[#20C997]/40 transition-all duration-300"
-            >
-              Book Your Ride Now
-            </a>
+            <Link href="/taxi">
+              <button className="bg-gradient-to-r from-[#0F5132] to-[#2EB67D] text-white font-semibold px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                Book Your Ride Now
+              </button>
+            </Link>
+            <Link href="/about">
+              <button className="bg-white text-[#0F5132] border-2 border-[#0F5132] font-semibold px-8 py-3.5 rounded-full shadow-md hover:bg-[#F7F9F5] hover:shadow-lg hover:scale-105 transition-all duration-300">
+                Learn More
+              </button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>
