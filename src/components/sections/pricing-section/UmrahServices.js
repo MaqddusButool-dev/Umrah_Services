@@ -8,7 +8,7 @@ export default function UmrahServices() {
     {
       icon: <FaCarSide size={42} />,
       title: "Airport Transfers",
-      text: "Reliable pick-up and drop-off from Jeddah, Madinah, Taif, and Riyadh airports with premium comfort and punctual service.",
+      text: "Reliable pick-up and drop-off from Jeddah, Madinah, Taif, and Riyadh airports with excellent comfort and punctual service.",
     },
     {
       icon: <FaExchangeAlt size={42} />,

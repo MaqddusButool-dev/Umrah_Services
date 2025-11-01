@@ -53,7 +53,7 @@ const cars = [
   {
     id: "GMC-2022",
     title: "GMC-2022",
-    subtitle: "Premium • 6 Seats • AC",
+    subtitle: "Luxury • 6 Seats • AC",
     img: gmc,
     features: [
       { icon: <FaUsers />, label: "6 Luxury Seats" },
@@ -174,7 +174,7 @@ export default function CarPricing() {
                       {active.subtitle}
                     </p>
                     <p className="mt-3 text-[#123C25]/80 leading-relaxed">
-                      Experience a premium, comfortable, and reliable Umrah taxi
+                      Experience a luxurious, comfortable, and reliable Umrah taxi
                       service with transparent rates, air-conditioned vehicles,
                       and licensed drivers. Your peace of mind is our priority.
                     </p>
@@ -337,7 +337,7 @@ export default function CarPricing() {
 //   {
 //     id: "GMC-2022",
 //     title: "GMC-2022",
-//     subtitle: "Premium • 6 Seats • AC",
+//     subtitle: "Luxury • 6 Seats • AC",
 //     img: gmc,
 //     features: [
 //       { icon: <FaUsers />, label: "6 Luxury Seats" },
@@ -458,7 +458,7 @@ export default function CarPricing() {
 //                       {active.subtitle}
 //                     </p>
 //                     <p className="mt-3 text-[#123C25]/80 leading-relaxed">
-//                       Experience a premium, comfortable, and reliable Umrah taxi
+//                       Experience a luxurious, comfortable, and reliable Umrah taxi
 //                       service with transparent rates, air-conditioned vehicles,
 //                       and licensed drivers. Your peace of mind is our priority.
 //                     </p>
@@ -609,7 +609,7 @@ export default function CarPricing() {
 //   {
 //     id: "GMC-2022",
 //     title: "GMC-2022",
-//     subtitle: "Premium • 6 Seats • AC",
+//     subtitle: "Luxury • 6 Seats • AC",
 //     img: gmc,
 //     features: [
 //       { icon: <FaUsers />, label: "6 Luxury Seats" },
@@ -727,7 +727,7 @@ export default function CarPricing() {
 //                   </h3>
 //                   <p className="text-sm text-[#2EB67D] mt-1">{active.subtitle}</p>
 //                   <p className="mt-3 text-[#123C25]/80 leading-relaxed">
-//                     Experience a premium, comfortable, and reliable Umrah taxi
+//                     Experience a luxurious, comfortable, and reliable Umrah taxi
 //                     service with transparent rates, air-conditioned vehicles,
 //                     and licensed drivers. Your peace of mind is our priority.
 //                   </p>
@@ -859,7 +859,7 @@ export default function CarPricing() {
 //   {
 //     id: "GMC-2022",
 //     title: "GMC-2022",
-//     subtitle: "Premium • 6 Seats • AC",
+//     subtitle: "Luxury • 6 Seats • AC",
 //     img: gmc,
 //     pricePoints: [
 //       ["Jeddah Airport → Makkah Hotel", "400 SR"],
@@ -962,7 +962,7 @@ export default function CarPricing() {
 //                       {active.subtitle}
 //                     </p>
 //                     <p className="mt-3 text-[#123C25]/80 leading-relaxed">
-//                       Experience a premium, comfortable, and reliable Umrah taxi
+//                       Experience a luxurious, comfortable, and reliable Umrah taxi
 //                       service with transparent rates, air-conditioned vehicles,
 //                       and licensed drivers. Your peace of mind is our priority.
 //                     </p>

@@ -76,7 +76,7 @@ export default function AboutSection() {
 
           <p className="text-gray-700 leading-relaxed text-base md:text-lg">
             <span className="text-[#b99a6b] font-semibold">Rihlat Al Fakhama Travels & Tours</span> is a trusted name in
-            Saudi Arabia for premium Hajj, Umrah, and tourism services. From luxury transportation to hotel bookings, we
+            Saudi Arabia for quality Hajj, Umrah, and tourism services. From luxury transportation to hotel bookings, we
             ensure your journey is smooth, safe, and spiritually fulfilling. <br /> Our expert chauffeurs and modern
             fleet guarantee comfort and reliability at every step of your holy trip.
           </p>

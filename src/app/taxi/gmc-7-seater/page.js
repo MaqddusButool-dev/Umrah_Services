@@ -14,11 +14,11 @@ const vehicleData = {
   price: "280",
   features: [
     "Luxury Interior",
-    "Premium Comfort",
+    "Excellent Comfort",
     "Advanced Safety Features",
     "Professional Driver",
     "GPS Navigation",
-    "Premium Sound System",
+    "Quality Sound System",
     "Climate Control",
     "Privacy Glass",
   ],
@@ -28,7 +28,7 @@ const vehicleData = {
     { label: "Air Conditioning", value: "Multi-Zone" },
     { label: "Luggage Capacity", value: "5 Large Bags" },
   ],
-  description: "Experience luxury travel with the GMC 7 Seater. This premium SUV offers exceptional comfort, advanced safety features, and a spacious interior. Perfect for those seeking a high-end travel experience during their pilgrimage.",
+  description: "Experience luxury travel with the GMC 7 Seater. This high-end SUV offers exceptional comfort, advanced safety features, and a spacious interior. Perfect for those seeking a luxury travel experience during their pilgrimage.",
 };
 
 export default function GMCPage() {

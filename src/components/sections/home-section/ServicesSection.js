@@ -46,7 +46,7 @@ export default function ServicesSection() {
       icon: <FaHotel />,
       title: "Hotel Reservations",
       description:
-        "Premium and budget-friendly hotels near Haram Makkah and Masjid-e-Nabawi for complete comfort and convenience.",
+        "Luxury and budget-friendly hotels near Haram Makkah and Masjid-e-Nabawi for complete comfort and convenience.",
     },
     {
       icon: <FaBus />,
@@ -77,7 +77,7 @@ export default function ServicesSection() {
             OUR <span className="text-[#C19A6B]">CORE SERVICES</span>
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Premium-quality Umrah & Hajj services for a comfortable and
+            High-quality Umrah & Hajj services for a comfortable and
             spiritual experience.
           </p>
           <motion.div

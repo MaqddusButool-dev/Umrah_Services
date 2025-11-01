@@ -279,7 +279,7 @@ export default function HeroSection() {
               className="inline-block mb-4"
             >
               <span className="bg-[#ad8f60] text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                ⭐ Premium Travel Services
+                ⭐ Quality Travel Services
               </span>
             </motion.div>
 

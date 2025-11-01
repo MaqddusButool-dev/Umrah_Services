@@ -48,7 +48,7 @@ export default function AboutSection() {
           </h2>
 
           <p className="text-gray-700 leading-relaxed mb-1">
-            We provide premium and reliable travel services for pilgrims across
+            We provide quality and reliable travel services for pilgrims across
             Saudi Arabia. From Jeddah Airport transfers to Makkah and Madinah
             trips, our mission is to make your journey comfortable, safe, and
             on time.

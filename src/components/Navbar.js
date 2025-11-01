@@ -60,10 +60,11 @@ export default function Navbar() {
   ];
 
   const serviceOptions = [
-    { name: "ZIARAT SERVICES", path: "/services/ziarat-services" },
-    { name: "AIRPORT TRANSFER", path: "/services/airport-transfer" },
-    { name: "HOTEL RESERVATION", path: "/services/hotel-reservation" },
-    { name: "PRIVATE TAXI", path: "/services/private-taxi" },
+    { name: "LUXURY TRANSPORTATION", path: "/services/luxury-transportation" },
+    { name: "ZIYARAT & GUIDED TOURS", path: "/services/ziyarat-guided-tours" },
+    { name: "HOTEL RESERVATIONS", path: "/services/hotel-reservations" },
+    { name: "PILGRIMAGE ASSISTANCE", path: "/services/pilgrimage-assistance" },
+    { name: "UMRAH & HAJJ PACKAGES", path: "/services/umrah-hajj-packages" },
   ];
 
   const navLinks = [

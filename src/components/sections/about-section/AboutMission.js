@@ -31,7 +31,7 @@ export default function AboutMission() {
             <div>
               <h4 className="font-semibold text-white text-lg">Luxury Fleet</h4>
               <p className="text-gray-200 text-sm">
-                Choose from our premium range — GMC, Camry, Hyundai H1, Hiace,
+                Choose from our quality range — GMC, Camry, Hyundai H1, Hiace,
                 and Coaster.
               </p>
             </div>

@@ -19,7 +19,7 @@ const vehicleData = {
     "Professional Driver",
     "Air Conditioning",
     "GPS Navigation",
-    "Premium Interior",
+    "Luxury Interior",
     "Advanced Safety",
   ],
   specifications: [
